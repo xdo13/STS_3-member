@@ -31,7 +31,20 @@ public class MemberRepository {
 	public MemberDTO findById(Long id) {
 		return sql.selectOne("Member.findById",id);
 	}
+
+	public void delete(Long id) {
+		sql.delete("Member.delete", id);
 		
+	}
+
+	public MemberDTO findByMemberEmail(String loginEmail) {
+		return sql.selectOne("Member.findByMemberEmail", loginEmail);
+	}
+
+	public int update(MemberDTO memberDTO) {
+		return sql.update("Member.update", memberDTO);
+	}
+		// public,괄호, 어노테이션 없애고 인터페이스로 만들기
 	
 
 }
